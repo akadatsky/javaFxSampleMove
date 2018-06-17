@@ -31,5 +31,10 @@ public abstract class AbstractShape implements Shape {
     public void move() {
         x += speedX;
         y += speedY;
+
+        if (x + WIDTH >= Config.WIDTH) {
+            speedX = -speedX;
+        }
+
     }
 }
