@@ -17,7 +17,7 @@ public class Main extends Application {
     public static final int HEIGHT = 700;
     private GraphicsContext gc;
 
-    private int x = 0;
+    private Board board;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,6 +39,8 @@ public class Main extends Application {
 
         gc = canvas.getGraphicsContext2D();
         createTimer();
+
+        board = new Board(gc);
     }
 
     private void createTimer() {
@@ -47,8 +49,8 @@ public class Main extends Application {
             @Override
             public void run() {
                 clean();
-                move();
-                draw();
+                board.move();
+                board.draw();
             }
         };
 
@@ -59,15 +61,6 @@ public class Main extends Application {
 
     private void clean() {
         gc.clearRect(0, 0, WIDTH, HEIGHT);
-    }
-
-    private void move() {
-        x += 10;
-    }
-
-    private void draw() {
-        gc.setFill(Color.RED);
-        gc.fillOval(x, 10, 50, 50);
     }
 
 }
