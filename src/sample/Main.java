@@ -13,8 +13,6 @@ import java.util.TimerTask;
 
 public class Main extends Application {
 
-    public static final int WIDTH = 1200;
-    public static final int HEIGHT = 700;
     private GraphicsContext gc;
 
     private Board board;
@@ -26,7 +24,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Canvas canvas = new Canvas(WIDTH, HEIGHT);
+        Canvas canvas = new Canvas(Config.WIDTH, Config.HEIGHT);
 
         BorderPane group = new BorderPane();
         group.setCenter(canvas);
@@ -60,7 +58,7 @@ public class Main extends Application {
     }
 
     private void clean() {
-        gc.clearRect(0, 0, WIDTH, HEIGHT);
+        gc.clearRect(0, 0, Config.WIDTH, Config.HEIGHT);
     }
 
 }

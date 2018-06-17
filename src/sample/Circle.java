@@ -5,19 +5,10 @@ import javafx.scene.paint.Color;
 
 import java.util.Random;
 
-public class Circle implements Shape {
+public class Circle extends AbstractShape {
 
-    private final GraphicsContext gc;
-    private double x = 0;
-    private double y = 0;
-    public int speed;
-
-    public Circle(GraphicsContext gc, double y) {
-        this.gc = gc;
-        this.y = y;
-
-        Random random = new Random();
-        speed = random.nextInt(10) + 1;
+    public Circle(GraphicsContext gc) {
+        super(gc);
     }
 
     public void move() {

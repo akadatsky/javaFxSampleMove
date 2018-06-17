@@ -13,8 +13,9 @@ public class Board {
 
     public Board(GraphicsContext gc) {
         this.gc = gc;
-        shapes.add(new Circle(gc, 10));
-        shapes.add(new Circle(gc, 100));
+        for (int i = 0; i < 20; i++) {
+            shapes.add(new Circle(gc));
+        }
     }
 
     public void move() {
