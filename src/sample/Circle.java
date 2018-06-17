@@ -17,7 +17,7 @@ public class Circle extends AbstractShape {
 
     public void draw() {
         gc.setFill(Color.RED);
-        gc.fillOval(x, y, 50, 50);
+        gc.fillOval(x, y, WIDTH, HEIGHT);
     }
 
 }

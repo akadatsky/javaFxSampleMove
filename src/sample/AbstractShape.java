@@ -8,6 +8,9 @@ public abstract class AbstractShape implements Shape {
 
     protected final GraphicsContext gc;
 
+    protected final int WIDTH = 30;
+    protected final int HEIGHT = 30;
+
     protected double x;
     protected double y;
     protected double speed;
@@ -17,8 +20,8 @@ public abstract class AbstractShape implements Shape {
         Random random = new Random();
         speed = random.nextInt(10) + 1;
 
-        x = random.nextInt(Config.WIDTH - 50);
-        y = random.nextInt(Config.HEIGHT - 50);
+        x = random.nextInt(Config.WIDTH - WIDTH);
+        y = random.nextInt(Config.HEIGHT - HEIGHT);
 
     }
 }
