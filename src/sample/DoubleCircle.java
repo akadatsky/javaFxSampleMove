@@ -5,17 +5,18 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 
-public class Circle extends AbstractShape {
+public class DoubleCircle extends Circle {
 
-    public Circle(GraphicsContext gc, List<Shape> shapes) {
+    public DoubleCircle(GraphicsContext gc, List<Shape> shapes) {
         super(gc, shapes);
-        color = Color.RED;
     }
 
     @Override
     public void draw() {
-        super.draw();
+        gc.setFill(Color.RED);
         gc.fillOval(x, y, WIDTH, HEIGHT);
-    }
 
+        gc.setFill(Color.GREEN);
+        gc.fillOval(x + WIDTH, y, WIDTH, HEIGHT);
+    }
 }

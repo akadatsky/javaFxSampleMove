@@ -1,7 +1,9 @@
 package sample;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 public abstract class AbstractShape implements Shape {
@@ -16,7 +18,9 @@ public abstract class AbstractShape implements Shape {
     protected double speedX;
     protected double speedY;
 
-    public AbstractShape(GraphicsContext gc) {
+    protected Color color;
+
+    public AbstractShape(GraphicsContext gc, List<Shape> shapes) {
         this.gc = gc;
         Random random = new Random();
 
@@ -35,6 +39,10 @@ public abstract class AbstractShape implements Shape {
         if (x + WIDTH >= Config.WIDTH) {
             speedX = -speedX;
         }
+    }
 
+    @Override
+    public void draw() {
+        gc.setFill(color);
     }
 }
