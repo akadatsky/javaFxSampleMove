@@ -19,6 +19,10 @@ public class Main extends Application {
 
     private int x = 0;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -34,11 +38,7 @@ public class Main extends Application {
         primaryStage.show();
 
         gc = canvas.getGraphicsContext2D();
-
-
         createTimer();
-
-        draw();
     }
 
     private void createTimer() {
@@ -47,8 +47,8 @@ public class Main extends Application {
             @Override
             public void run() {
                 clean();
+                move();
                 draw();
-                x += 10;
             }
         };
 
@@ -61,8 +61,8 @@ public class Main extends Application {
         gc.clearRect(0, 0, WIDTH, HEIGHT);
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    private void move() {
+        x += 10;
     }
 
     private void draw() {
