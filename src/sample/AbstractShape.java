@@ -20,7 +20,7 @@ public abstract class AbstractShape implements Shape {
 
     protected Color color;
 
-    public AbstractShape(GraphicsContext gc, List<Shape> shapes) {
+    public AbstractShape(GraphicsContext gc) {
         this.gc = gc;
         Random random = new Random();
 

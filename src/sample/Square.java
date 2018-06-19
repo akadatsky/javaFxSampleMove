@@ -8,7 +8,7 @@ import java.util.List;
 public class Square extends AbstractShape {
 
     public Square(GraphicsContext gc, List<Shape> shapes) {
-        super(gc, shapes);
+        super(gc);
         color = Color.GREEN;
     }
 

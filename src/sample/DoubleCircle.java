@@ -8,7 +8,7 @@ import java.util.List;
 public class DoubleCircle extends Circle {
 
     public DoubleCircle(GraphicsContext gc, List<Shape> shapes) {
-        super(gc, shapes);
+        super(gc);
     }
 
     @Override

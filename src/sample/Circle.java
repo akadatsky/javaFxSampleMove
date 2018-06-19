@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Circle extends AbstractShape {
 
-    public Circle(GraphicsContext gc, List<Shape> shapes) {
-        super(gc, shapes);
+    public Circle(GraphicsContext gc) {
+        super(gc);
         color = Color.RED;
     }
 
@@ -17,5 +17,14 @@ public class Circle extends AbstractShape {
         super.draw();
         gc.fillOval(x, y, WIDTH, HEIGHT);
     }
+
+    void moveLeft() {
+        x += speedX;
+    }
+
+    void moveRight() {
+        x -= speedX;
+    }
+
 
 }

@@ -9,26 +9,28 @@ import java.util.List;
 public class Board {
 
     private final GraphicsContext gc;
-    List<Shape> shapes = new ArrayList<>();
+    Circle shape;
 
     public Board(GraphicsContext gc) {
         this.gc = gc;
-        for (int i = 0; i < 7; i++) {
-            shapes.add(new Circle(gc, shapes));
-            shapes.add(new DoubleCircle(gc, shapes));
-            shapes.add(new Square(gc, shapes));
-        }
+        shape = new Circle(gc);
     }
 
-    public void move() {
-        for (Shape shape : shapes) {
-            shape.move();
-        }
+    public void moveLeft() {
+        clean();
+        shape.moveLeft();
+        shape.draw();
     }
 
-    public void draw() {
-        for (Shape shape : shapes) {
-            shape.draw();
-        }
+    public void moveRight() {
+        clean();
+        shape.moveRight();
+        shape.draw();
     }
+
+    private void clean() {
+        gc.clearRect(0, 0, Config.WIDTH, Config.HEIGHT);
+    }
+
+
 }

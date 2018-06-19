@@ -1,9 +1,11 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -36,30 +38,33 @@ public class Main extends Application {
         primaryStage.show();
 
         gc = canvas.getGraphicsContext2D();
-        createTimer();
 
         board = new Board(gc);
+        registerOnKeyPressListener(scene);
     }
 
-    private void createTimer() {
-
-        TimerTask task = new TimerTask() {
+    public void registerOnKeyPressListener(Scene scene) {
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
-            public void run() {
-                clean();
-                board.move();
-                board.draw();
+            public void handle(KeyEvent event) {
+                switch (event.getCode()) {
+                    case UP:
+                        System.out.println("up");
+                        break;
+                    case RIGHT:
+                        board.moveRight();
+                        break;
+                    case DOWN:
+                        System.out.println("down");
+                        break;
+                    case LEFT:
+                        board.moveLeft();
+                        break;
+                }
             }
-        };
-
-        Timer timer = new Timer();
-        timer.schedule(task, 300, 300);
-
+        });
     }
 
-    private void clean() {
-        gc.clearRect(0, 0, Config.WIDTH, Config.HEIGHT);
-    }
 
 }
 
